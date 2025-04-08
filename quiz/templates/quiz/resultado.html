@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado da Questão</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'pagina_inicial' %}">Sistema de Desempenho</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pagina_inicial' %}">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'relatorio' %}">Relatório de Desempenho</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'quiz' %}">Resolver Questões</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Container Principal -->
+    <div class="container mt-5">
+        <!-- Título -->
+        <div class="text-center mb-4">
+            <h2 class="text-success">Resultado da Questão</h2>
+            <p class="fs-4 {% if resultado == 'Correto!' %}text-success{% else %}text-danger{% endif %}">
+                {{ resultado }}
+            </p>
+        </div>
+
+        <!-- Card da Questão -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Questão:</strong></h5>
+                <p class="card-text">{{ questao.enunciado }}</p>
+
+                <h5 class="card-title mt-4"><strong>Sua Resposta:</strong></h5>
+                <p class="card-text {% if resultado == 'Correto!' %}text-success{% else %}text-danger{% endif %}">
+                    {{ alternativa.texto }}
+                </p>
+
+                {% if resultado != 'Correto!' %}
+                    <h5 class="card-title mt-4"><strong>Resposta Correta:</strong></h5>
+                    <p class="card-text text-success">{{ questao.alternativa_correta.texto }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Botões de Navegação -->
+        <div class="text-center">
+            <a href="{% url 'resolver_questoes' %}" class="btn btn-primary btn-lg me-2">Responder Outra Questão</a>
+            <a href="{% url 'relatorio_desempenho' %}" class="btn btn-outline-secondary btn-lg">Ver Relatório de Desempenho</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
