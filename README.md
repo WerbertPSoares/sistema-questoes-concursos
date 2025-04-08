@@ -19,19 +19,13 @@ Sistema de gerenciamento de questões objetivas e simulados, desenvolvido para a
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Backend:** Django + Django Rest Framework
-- **Frontend:** React.js + TailwindCSS
+- **Backend:** Django 
 - **Banco de Dados:** PostgreSQL
-- **Geolocalização e mapas (opcional):** Leaflet.js + OpenStreetMap
-- **Ambiente:** Anaconda, Jupyter Notebooks (para análise de desempenho)
-- **Outros:** Docker (opcional para ambiente containerizado), VSCode
 
 ## ⚙️ Requisitos para rodar o projeto
 
 - Python 3.11+
-- Node.js 18+
 - PostgreSQL 15+
-- Anaconda (opcional, recomendado para ambientes isolados)
 - VSCode (com extensões recomendadas)
 - Docker (opcional)
 
@@ -73,54 +67,21 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-### Configuração do Frontend
-
-1. Vá até a pasta do frontend:
-
-```bash
-cd frontend
-```
-
-2. Instale as dependências:
-
-```bash
-npm install
-```
-
-3. Inicie o servidor React:
-
-```bash
-npm start
-```
-
 ## 🧩 Estrutura do Projeto
 
 ```
-/backend
     /sistema_questoes
-        /apps
-            /questoes
-            /usuarios
-            /simulados
+        /quiz
+            /templates
+        /sistema_questoes
         manage.py
-/frontend
-    /src
-        /components
-        /pages
-        /services
-/environment.yml
-/README.md
-/docker-compose.yml (opcional)
-```
+
 
 ## 📝 Extensões recomendadas (VSCode)
 
 - Python
 - Django
-- ESLint
-- Prettier
 - Docker
-- Jupyter
 - PostgresSQL Management
 
 ## 📊 Roadmap Futuro
@@ -139,13 +100,3 @@ Contribuições são sempre bem-vindas! Fique à vontade para abrir issues ou en
 
 Este projeto está sob a licença MIT.
 
----
-
-Se quiser, posso te ajudar também com:
-
-- Criar o `requirements.txt` e o `environment.yml`
-- Fazer o arquivo `docker-compose.yml`
-- Fazer um README com badge de build e qualidade de código (bonito para GitHub)
-- Ou até criar um **template para documentação da API** no README!
-
-Quer? 🚀
